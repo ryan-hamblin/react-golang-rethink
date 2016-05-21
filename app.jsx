@@ -1,10 +1,10 @@
 let channels = [
-    {name: 'Hardware Suport'},
-    {name: 'Geeks'},
-    {name: 'General'},
-    {name: 'Random'},
-    {name: 'IT'},
-    {name: 'Front End'},
+    {name: 'Hardware Suport', index: 1},
+    {name: 'Geeks', index: 2},
+    {name: 'General', index: 3},
+    {name: 'Random', index: 4},
+    {name: 'IT', index: 5},
+    {name: 'Front End', index: 6},
 ];
 
 class Channel extends React.Component {
@@ -12,7 +12,9 @@ class Channel extends React.Component {
         console.log('I was clicked: ', this.props.name)
     }
     render() {
-        return <li onClick={this.onClick.bind(this)}>{this.props.name}</li>
+        return (
+            <li onClick={this.onClick.bind(this)}>{this.props.name}</li>
+        )
     }
 }
 
@@ -22,7 +24,7 @@ class ChannelList extends React.Component {
             <ul>
                 {this.props.channels.map( channel => {
                         return (
-                            <Channel name={channel.name} />
+                            <Channel name={channel.name} key={channel.index} />
                         )   
                     }
                 )}
