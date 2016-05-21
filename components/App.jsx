@@ -1,84 +1,31 @@
-class Channel extends React.Component {
-    onClick(){
-        console.log('I was clicked: ', this.props.name)
-    }
-    render() {
-        return (
-            <li onClick={this.onClick.bind(this)}>{this.props.name}</li>
-        )
-    }
-}
+import React, {Component} from 'react';
+import ChannelSection from './channels/ChannelSection.jsx'
 
-class ChannelList extends React.Component {
-    render() {
-        return (
-            <ul>
-                {this.props.channels.map( channel => {
-                        return (
-                            <Channel name={channel.name} key={channel.index} />
-                        )   
-                    }
-                )}
-            </ul>
-        )
-    }
-}
 
-class ChannelForm extends React.Component {
+class App extends Component {
     constructor(props){
-        super(props);
-        this.state = {};
-    };
-    onChange(e){
-        this.setState({
-            channelName: e.target.value
-        });
-    };
-    onSubmit(e){
-        let {channelName} = this.state;
-        console.log('channel name: ', channelName);
-        this.setState({
-            channelName: ''
-        });
-        this.props.addChannel(channelName);
-        e.preventDefault();  
-    };
-
-    render(){
-        return (
-            <form onSubmit={this.onSubmit.bind(this)}>
-                <input type="text"
-                       onChange={this.onChange.bind(this)}
-                       vale={this.state.channelName} />
-            </form>
-        )
-    }
-}
-
-class ChannelSection extends React.Component {
-    constructor(props){
-        super(props);
+        super(props)
         this.state = {
-            channels: []
+            channels: [];
         };
-    };
+    }
+
     addChannel(name){
         let {channels} = this.state;
-        channels.push({name: name});
-        this.setState({
-            channels: channels
-        });
-    };
+        channels.push({
+            id: channels.length,
+            name
+        })
+        this.setState({channels});
+        //TODO: Send API CALL to server;
+    }
 
     render(){
-        return (
-            <div>
-                <ChannelList channels={this.state.channels}/>
-                <ChannelForm addChannel={this.addChannel.bind(this)}/>
-            </div>
-        )
+        <ChannelSection 
+            channels={this.state.channels}
+            addChannel={this.addChannel.bind(this)}
+        />
     }
 }
-
 ReactDOM.render(<ChannelSection />, 
     document.getElementById('app'));

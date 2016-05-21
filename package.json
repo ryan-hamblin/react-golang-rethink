@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/ryanhca/react-go/issues"
   },
-  "homepage": "https://github.com/ryanhca/react-go#readme"
+  "homepage": "https://github.com/ryanhca/react-go#readme",
+  "devDependencies": {
+    "babel-loader": "^5.3.3",
+    "react": "^15.1.0",
+    "webpack": "^1.13.1"
+  }
 }
