@@ -30,4 +30,4 @@ ChannelForm.propTypes = {
 }
 
 
-export default ChannelForm
+export default ChannelForm;

@@ -26,4 +26,4 @@ ChannelSection.propTypes = {
   activeChannel: React.PropTypes.object.isRequired
 }
 
-export default ChannelSection
+export default ChannelSection;

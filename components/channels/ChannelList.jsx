@@ -23,4 +23,4 @@ ChannelList.propTypes = {
   activeChannel: React.PropTypes.object.isRequired
 }
 
-export default ChannelList
+export default ChannelList;

@@ -25,4 +25,4 @@ Channel.propTypes = {
   activeChannel: React.PropTypes.object.isRequired
 }
 
-export default Channel
+export default Channel;
