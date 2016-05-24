@@ -62,12 +62,6 @@ class App extends Component{
   onDisconnect(){
     this.setState({connected: false});
   }
-
-  newChannel(channel){
-    let {channels} = this.state;
-    channels.push(channel);
-    this.setState({channels});
-  }
   onAddChannel(channel){
     let {channels} = this.state;
     channels.push(channel);
@@ -83,7 +77,6 @@ class App extends Component{
     this.socket.emit('message subscribe',
       {channelId: activeChannel.id});
   }
-
   setUserName(name){
     this.socket.emit('user edit', {name});
   }
